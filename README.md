@@ -46,13 +46,23 @@ PRINTF("MAIN_CLK mux : %s\r\n",
     (actual == kEXT_CLK_to_MAIN_CLK) ? "EXT_CLK (XTAL) OK" : "MISMATCH");
 
 How to Use
-Clone this repo:
-git clone https://github.com/maria-gonzalezb-nxp/lpc5536-xtal-clock-example.git
+1. Tools installed
+•	MCUXpresso for VS Code
+•	MCUXpresso SDK 26.6.0 for LPC5536 (downloadable from the SDK Builder on nxp.com)
+•	A debug probe driver (LinkServer or PEmicro)
 
-Copy hello_world.c into your local SDK at:
- <SDK_ROOT>/examples/demo_apps/hello_world/
-Build and flash using MCUXpresso for VS Code or your preferred IDE
-Open a serial terminal at 115200 baud to see the verification output
+2. Hardware
+•	LPCXpresso55S36 EVK
+•	USB cable to the MCU-LINK port
+
+3. Steps
+A.	Clone the repo:
+B.	Bash
+    git clone https://github.com/maria-gonzalezb-nxp/lpc5536-xtal-clock-example.git
+C.	In MCUXpresso for VS Code, import the hello_world example from their local SDK
+D.	Replace hello_world.c in the project with the one from the cloned repo
+E.	Build and flash
+F.	Open Serial Monitor at 115200 baud to see the verification output
 
 Important Notes
 kPDRUNCFG_PD_XTAL32M does not exist on the LPC55S36 — the XTAL is enabled via BOARD_InitHardware() and the ANACTRL->XO32M_CTRL register, not through the power management API
